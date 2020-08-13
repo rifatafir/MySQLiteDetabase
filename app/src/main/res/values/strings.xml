@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">MySQLiteDetabase</string>
+    <string name="name">Name</string>
+    <string name="age">Age</string>
+    <string name="gender">Gender</string>
+    <string name="add_data">Add Data</string>
+    <string name="display_data">Display All Data</string>
+    <string name="update_data">Update All Data</string>
+    <string name="id">ID</string>
+
+</resources>

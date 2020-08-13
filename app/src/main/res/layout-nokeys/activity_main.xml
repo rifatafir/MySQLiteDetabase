@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.mysqlitedetabase.MainActivity" >
+
+
+    <LinearLayout
+        android:layout_margin="10dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="@string/name"
+            android:textSize="10dp"
+            android:textStyle="bold" />
+
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:id="@+id/nameEditTextId" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+            android:layout_margin="10dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:textSize="10dp"
+                android:textStyle="bold"
+                android:text="@string/age"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:id="@+id/ageEditTextId" />
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+            android:layout_margin="10dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:textSize="10dp"
+                android:textStyle="bold"
+                android:text="@string/gender"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:id="@+id/genderEditTextId"
+                />
+
+    </LinearLayout>
+    <Button
+            android:id="@+id/addButtonId"
+            android:text="@string/add_data"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+    />
+
+    <Button
+            android:id="@+id/displayAllDetaButtonId"
+            android:text="@string/display_data"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+        />
+
+
+
+
+
+
+
+</LinearLayout>
