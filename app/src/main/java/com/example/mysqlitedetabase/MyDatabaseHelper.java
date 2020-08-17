@@ -10,23 +10,24 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 
 import static android.database.sqlite.SQLiteDatabase.*;
+import static java.lang.String.*;
 
 public class MyDatabaseHelper extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "Student.db";
     private static final String TABLE_NAME = "Student_details";
-    private static final String VERSON_NUMBER = "2";
+    private static final int VERSON_NUMBER = 1;
     private static final String ID = "_id";
     private static final String NAME = "Name";
     private static final String AGE = "Age";
     private static final String GENDER = "Gender";
-    private static final String DROP_TABLE = "DROP TABLE IF EXIST" +TABLE_NAME;
-    private static final String CREATE_TABLE  = "\"CREATE TABLE \"+TABLE_NAME+\"(\"+ID+\" INTEGER KEY AUTOINCREMENT, \"+NAME+\" VARCHAR(255), \"_+AGE+\" INTEGER, "+GENDER+" VARCHAR(255)";
-    private static final String SELECT_ALL = "SELECT \"* FROMStudent_details";
+    private static final String DROP_TABLE = "DROP TABLE IF EXISTS" +TABLE_NAME;
+    private static final String CREATE_TABLE  = format("CREATE TABLE%s(%s INTEGER PRIMARY KEY AUTOINCREMENT, %sVARCHAR(255), %sINTEGER,%s VARCHAR(15) );", TABLE_NAME, ID, NAME, AGE, GENDER);
+    private static final String SELECT_ALL = "SELECT * FROM" + TABLE_NAME;
     private Context context;
 
     public MyDatabaseHelper(Context context) {
-        super(context, DATABASE_NAME, null, Integer.parseInt(VERSON_NUMBER));
+        super(context, DATABASE_NAME, null, VERSON_NUMBER);
         this.context = context;
     }
 
@@ -35,7 +36,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
 
        try{
            Toast.makeText(context, "onCreate is called: ", Toast.LENGTH_LONG).show();
-           SQLiteDatabase.execSQL(CREATE_TABLE);
+           sqLiteDatabase.execSQL(CREATE_TABLE);
        }
        catch (Exception e){
            Toast.makeText(context, "Exception: "+e, Toast.LENGTH_LONG).show();
@@ -47,7 +48,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
         try{
             Toast.makeText(context, "onUpgrate is called: ", Toast.LENGTH_LONG).show();
-            SQLiteDatabase.execSQL(DROP_TABLE);
+            sqLiteDatabase.execSQL(DROP_TABLE);
             onCreate(sqLiteDatabase);
         }
         catch (Exception e){
@@ -65,8 +66,8 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         contentValues.put(AGE, age);
         contentValues.put(GENDER, gender);
 
-        long rowID = sqLiteDatabase.insert(TABLE_NAME, null, contentValues);
-        return rowID;
+        long insert = sqLiteDatabase.insert(TABLE_NAME, null, contentValues);
+        return sqLiteDatabase.insert(TABLE_NAME, null, contentValues);
     }
 
 

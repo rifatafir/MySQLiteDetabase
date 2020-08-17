@@ -3,9 +3,9 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.example.mysqlitedetabase.MainActivity">
 
     <LinearLayout
@@ -29,7 +29,7 @@
             android:textStyle="bold"
             android:textSize="20sp"
             android:id="@+id/ageEditTextId"
-        />
+        tools:ignore="DuplicateIds" />
 
     </LinearLayout>
 
@@ -129,7 +129,7 @@
 
     <Button
         android:id="@+id/deleteAllDetaButtonId"
-        android:text="@string/update_data"
+        android:text="@string/delete_data"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         />

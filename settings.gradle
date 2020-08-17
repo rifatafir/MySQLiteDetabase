@@ -1,0 +1,2 @@
+rootProject.name='MySQLiteDetabase'
+include ':app'

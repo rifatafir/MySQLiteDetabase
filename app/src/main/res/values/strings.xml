@@ -6,6 +6,7 @@
     <string name="add_data">Add Data</string>
     <string name="display_data">Display All Data</string>
     <string name="update_data">Update All Data</string>
+    <string name="delete_data">delete  Data</string>
     <string name="id">ID</string>
 
 </resources>

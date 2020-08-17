@@ -1,8 +1,5 @@
 package com.example.mysqlitedetabase;
 
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -11,13 +8,16 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+
 import java.security.cert.Extension;
-import java.time.ZoneOffset;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private EditText nameEditText, ageEditText, genderEditText, idEditText;
-    private Button addButton, displayAllDetaButton, updateButton, deleteButton;
+    private Button displayAllDetaButton;
+    private Button updateButton, addButton, deleteButton;
     MyDatabaseHelper myDatabaseHelper;
     private Extension view;
 
@@ -71,23 +71,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         if(view.getId() == R.id.displayAllDetaButtonId){
 
-           Cursor cursor =  myDatabaseHelper.displayAllData();
+            Cursor cursor =  myDatabaseHelper.displayAllData();
 
-           if(cursor.getCount() == 0){
+            if(cursor.getCount() == 0){
 
-               showData("Error", "No data Found");
-               return;
-           }
-           StringBuffer stringBuffer = new StringBuffer();
-           while(cursor.moveToNext()){
+                showData("Error", "No data Found");
+                return;
+            }
+            StringBuilder stringBuffer = new StringBuilder();
+            while(cursor.moveToNext()){
 
-               stringBuffer.append("ID: " + cursor.getString(0) + "\n");
-               stringBuffer.append("Name: " + cursor.getString(1)+ "\n");
-               stringBuffer.append("Age: " + cursor.getString(2)+ "\n");
-               stringBuffer.append("Gender: " + cursor.getString(3)+ "\n");
-           }
+                stringBuffer.append("ID:"+cursor.getString(0)+"\n");
+                stringBuffer.append("Name:"+cursor.getString(1)+"\n");
+                stringBuffer.append("Age:"+cursor.getString(2)+"\n");
+                stringBuffer.append("Gender:"+cursor.getString(3)+"\n");
+            }
 
-           showData("ResultSet", stringBuffer.toString());
+            showData("ResultSet", stringBuffer.toString());
 
         }
 
