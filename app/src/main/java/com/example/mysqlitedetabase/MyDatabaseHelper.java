@@ -21,7 +21,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     private static final String NAME = "Name";
     private static final String AGE = "Age";
     private static final String GENDER = "Gender";
-    private static final String DROP_TABLE = "DROP TABLE IF EXISTS" +TABLE_NAME;
+    private static final String DROP_TABLE = "DROP TABLE IF EXISTS" +TABLE_NAME ;
     private static final String CREATE_TABLE  = format("CREATE TABLE%s(%s INTEGER PRIMARY KEY AUTOINCREMENT, %sVARCHAR(255), %sINTEGER,%s VARCHAR(15) );", TABLE_NAME, ID, NAME, AGE, GENDER);
     private static final String SELECT_ALL = "SELECT * FROM" + TABLE_NAME;
     private Context context;
